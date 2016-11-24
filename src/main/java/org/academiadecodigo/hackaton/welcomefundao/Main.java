@@ -15,6 +15,8 @@ public class Main {
         ConnectionManager manager = new ConnectionManager();
         JdbcUserService jdbcUserService = new JdbcUserService(manager);
 
+        jdbcUserService.changePassword(1, "teste");
+
         jdbcUserService.authenticate("Eurico Fonseca", "123456");
 
 

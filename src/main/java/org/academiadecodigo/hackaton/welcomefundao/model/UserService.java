@@ -7,5 +7,7 @@ public interface UserService {
 
     boolean authenticate(String username, String password);
 
+    boolean changePassword(int id, String newPassword);
+
 
 }

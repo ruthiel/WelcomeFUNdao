@@ -59,4 +59,30 @@ public class JdbcUserService implements UserService {
         }
         return result;
     }
+
+    @Override
+    public boolean changePassword(int id, String newPassword) {
+        boolean result = false;
+
+        try {
+            checkConnection();
+
+            Statement statement = dbConnection.createStatement();
+            String query = "UPDATE users SET password = \"" + newPassword + "\" WHERE user_id = " + id;
+            int resultSet = statement.executeUpdate(query);
+
+            /*f (resultSet.next()) {
+                System.out.println("Password changed with success");
+                return true;
+            }*/
+
+            if (statement != null) {
+                statement.close();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }
