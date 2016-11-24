@@ -25,10 +25,10 @@ public class screen extends Application{
     public void start(Stage primaryStage) throws Exception {
         Navigation.getInstance().setStage(primaryStage);
 
-        Navigation.getInstance().loadScreen("FailedLogin_FUNdao");
+        Navigation.getInstance().loadScreen("Login_FUNdao");
         ConnectionManager connectionManager = new ConnectionManager();
         UserService userService = new JdbcUserService(connectionManager);
 
-        ((LoginController)Navigation.getInstance().getController("FailedLogin_FUNdao")).setUserService(userService);
+        ((LoginController)Navigation.getInstance().getController("Login_FUNdao")).setUserService(userService);
     }
 }

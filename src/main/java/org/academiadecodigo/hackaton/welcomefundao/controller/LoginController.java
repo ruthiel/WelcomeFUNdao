@@ -11,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
+import org.academiadecodigo.hackaton.welcomefundao.Navigation;
 import org.academiadecodigo.hackaton.welcomefundao.model.UserService;
 
 import java.net.URL;
@@ -63,7 +64,12 @@ public class LoginController implements Initializable {
 
     @FXML
     void signInClick(MouseEvent event) {
-        System.out.println(userService.authenticate(userTextField.getText(), passwordField.getText()));
+        if(!userService.authenticate(userTextField.getText(), passwordField.getText())){
+
+            Navigation.getInstance().loadScreen("FailedLogin_FUNdao");
+        }else {
+            System.out.println("login");
+        }
     }
 
 
