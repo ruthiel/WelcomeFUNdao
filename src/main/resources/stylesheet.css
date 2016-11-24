@@ -10,14 +10,12 @@
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
 
-
-.passwordField{
-
-
+.passwordField {
+    -fx-text-fill: #ECF0F1;
 
 }
 
-.textField{
-
+.textField {
+    -fx-text-fill: #ECF0F1;
 
 }

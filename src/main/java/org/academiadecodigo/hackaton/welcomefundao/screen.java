@@ -30,5 +30,6 @@ public class screen extends Application{
         UserService userService = new JdbcUserService(connectionManager);
 
         ((LoginController)Navigation.getInstance().getController("Login_FUNdao")).setUserService(userService);
+
     }
 }

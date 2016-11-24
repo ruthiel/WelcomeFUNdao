@@ -67,6 +67,7 @@ public class LoginController implements Initializable {
         if(!userService.authenticate(userTextField.getText(), passwordField.getText())){
 
             Navigation.getInstance().loadScreen("FailedLogin_FUNdao");
+            ((LoginController)Navigation.getInstance().getController("FailedLogin_FUNdao")).setUserService(userService);
         }else {
             System.out.println("login");
         }

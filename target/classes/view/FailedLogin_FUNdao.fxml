@@ -47,7 +47,7 @@
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </ImageView>
-                  <TextField fx:id="userTextField" prefHeight="60.0" prefWidth="230.0" promptText="user name" style="-fx-background-color: #751fff; -fx-background-color: transparent;">
+                  <TextField fx:id="userTextField" prefHeight="60.0" prefWidth="230.0" promptText="user name" style="-fx-background-color: #751fff; -fx-background-color: transparent; -fx-text-fill: #ECF0F1;">
                      <padding>
                         <Insets left="40.0" />
                      </padding>
@@ -67,7 +67,7 @@
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </HBox.margin>
                   </ImageView>
-                  <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="230.0" promptText="password" style="-fx-background-color: #751fff; -fx-background-color: transparent;">
+                  <PasswordField fx:id="passwordField" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="60.0" prefWidth="230.0" promptText="password" style="-fx-background-color: #751fff; -fx-background-color: transparent; -fx-text-fill: #ECF0F1;">
                      <padding>
                         <Insets left="40.0" />
                      </padding>

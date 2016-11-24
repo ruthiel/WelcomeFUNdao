@@ -1,13 +1,21 @@
 package org.academiadecodigo.hackaton.welcomefundao.server;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.academiadecodigo.hackaton.welcomefundao.Parser;
+import org.academiadecodigo.hackaton.welcomefundao.model.JdbcUserService;
+import org.academiadecodigo.hackaton.welcomefundao.model.UserService;
+import org.academiadecodigo.hackaton.welcomefundao.persitence.ConnectionManager;
+
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.net.Socket;
 
 /**
  * Created by codecadet on 24/11/16.
  */
-public class ClientHandler implements Runnable, Serializable{
-    private ObjectOutputStream out;
+public class ClientHandler implements Runnable, Serializable {
+    private DataOutputStream out;
     private Socket clientSocket;
 
     public ClientHandler(Socket clientSocket) {
@@ -19,50 +27,55 @@ public class ClientHandler implements Runnable, Serializable{
 
         try {
 
-            ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
-            out = new ObjectOutputStream(clientSocket.getOutputStream());
+            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            out = new DataOutputStream(clientSocket.getOutputStream());
 
-            //UserService userService = new MockUserService();
-
-
-            Object readingObj;
+            String reader;
 
             while (true) {
                 //wait for Client request
-                readingObj = in.readObject();
+                reader = in.readLine();
+                System.out.println(reader);
+                //reader = reader.substring(0, reader.length());
+                System.out.println(reader);
 
-                if (readingObj == null) {
+                if (reader == null) {
                     System.out.println("closing connection");
                     return;
                 }
 
-                if (readingObj instanceof String) {
+                ObjectMapper om = new ObjectMapper();
+                ConnectionManager connectionManager = new ConnectionManager();
+                UserService userService = new JdbcUserService(connectionManager);
 
-                    String[] userLogin = ((String) readingObj).split("[.]");
-                    System.out.println("\n --Auth attempt-- ");
-                    System.out.println("username: " + userLogin[0] + "\npassword: " + userLogin[1]+"\n");
+                Parser parser = om.readValue(reader, Parser.class);
+                System.out.println("here");
+                System.out.println(parser.getMethodeName());
 
-                }
+                Method method = userService.getClass().getMethod(parser.getMethodeName(), parser.getUsername().getClass(), parser.getPassword().getClass());
+                method.invoke(userService,parser.getUsername(),parser.getPassword());
             }
 
 
         } catch (EOFException e) {
             System.out.println("Server closed the connection");
             System.exit(1);
-        } catch (ClassNotFoundException e) {
-            System.out.println("Unknown object");
+        }  catch (IOException e) {
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
 
 
     }
 
-    private void send(Object obj){
+    private void send(String s) {
         try {
-            out.reset(); //To avoid accumulating the buffer, the buffer shall be reset before writing in it.
-            out.writeObject(obj);
+            out.write(s.getBytes());
             out.flush();
         } catch (IOException e) {
             e.printStackTrace();
