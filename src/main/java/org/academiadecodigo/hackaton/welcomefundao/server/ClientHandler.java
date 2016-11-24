@@ -43,8 +43,6 @@ public class ClientHandler implements Runnable, Serializable{
                     System.out.println("username: " + userLogin[0] + "\npassword: " + userLogin[1]+"\n");
 
                 }
-
-
             }
 
 
