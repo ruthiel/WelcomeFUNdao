@@ -19,8 +19,8 @@ public final class Navigation {
     private Navigation() {
     }
 
-    private final int MIN_WIDTH = 410; // window width
-    private final int MIN_HEIGHT = 400; // window height
+    private final int MIN_WIDTH = 950; // window width
+    private final int MIN_HEIGHT = 600; // window height
 
     private LinkedList<Scene> scenes = new LinkedList<Scene>(); // Navigation History
     private Map<String, Initializable> controllers = new HashMap<String, Initializable>(); //Container of controllers

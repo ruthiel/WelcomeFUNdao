@@ -1,0 +1,23 @@
+.button {
+    -fx-padding: 5 22 5 22;
+    -fx-border-color: #27AE60;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: #27AE60;
+    -fx-font-family: "Oswald", sans-serif;
+    -fx-font-size: 11pt;
+    -fx-text-fill: #ECF0F1;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+
+.passwordField{
+
+
+
+}
+
+.textField{
+
+
+}

@@ -71,10 +71,10 @@ public class JdbcUserService implements UserService {
             String query = "UPDATE users SET password = \"" + newPassword + "\" WHERE user_id = " + id;
             int resultSet = statement.executeUpdate(query);
 
-            /*f (resultSet.next()) {
+           if (resultSet == 1) {
                 System.out.println("Password changed with success");
                 return true;
-            }*/
+            }
 
             if (statement != null) {
                 statement.close();
