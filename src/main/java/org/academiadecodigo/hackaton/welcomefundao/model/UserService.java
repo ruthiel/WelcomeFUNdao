@@ -15,5 +15,16 @@ public interface UserService {
 
     String[] roomsProperties();
 
+    String[] foodProperties();
+
+    String[] barProperties();
+
+    String[] cultureProperties();
+
+    String[] utilitiesProperties();
+
+    String[] tourismProperties();
+
+    String[] padawansProperties();
 
 }

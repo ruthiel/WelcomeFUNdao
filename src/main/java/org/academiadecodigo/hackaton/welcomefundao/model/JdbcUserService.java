@@ -130,7 +130,7 @@ public class JdbcUserService implements UserService {
 
             Statement statement = dbConnection.createStatement();
 
-            String query = "SELECT accomodation_photo, accomodation_name, address, contact, average_price FROM accomodation, location WHERE (accomodation.location_id = location.location_id);";
+            String query = "SELECT room_photo, room_contact, room_description, landlord, address FROM rooms, location WHERE (rooms.room_id = location.location_id);";
             ResultSet resultSet = statement.executeQuery(query);
 
             LinkedList<String> list = new LinkedList<>();
@@ -156,6 +156,224 @@ public class JdbcUserService implements UserService {
         } catch (SQLException ex) {
             ex.getStackTrace();
         }
+        return null;
+    }
+
+    @Override
+    public String[] foodProperties() {
+        try {
+            checkConnection();
+
+            Statement statement = dbConnection.createStatement();
+
+            String query = "SELECT restaurant_name, phone, address, type_of_food, distance, site, rating FROM restaurants, location WHERE (restaurants.location_id = location.location_id);";
+            ResultSet resultSet = statement.executeQuery(query);
+
+            LinkedList<String> list = new LinkedList<>();
+            while (resultSet.next()){
+                for (int i = 1; i <8 ; i++) {
+                    list.add(resultSet.getString(i));
+                }
+            }
+
+            String[] toReturn = new String[list.size()];
+
+            for (int i = 0; i < list.size(); i++) {
+                toReturn[i] = list.get(i);
+            }
+
+            for (String s:toReturn) {
+
+            }
+
+            return toReturn;
+
+
+        } catch (SQLException ex) {
+            ex.getStackTrace();
+        }
+        return null;
+
+    }
+
+    @Override
+    public String[] barProperties() {
+        try {
+            checkConnection();
+
+            Statement statement = dbConnection.createStatement();
+
+            String query = "SELECT bar_name, address, schedule, kind_of_music FROM bars, location WHERE (bars.location_id = location.location_id);";
+            ResultSet resultSet = statement.executeQuery(query);
+
+            LinkedList<String> list = new LinkedList<>();
+            while (resultSet.next()){
+                for (int i = 1; i <5 ; i++) {
+                    list.add(resultSet.getString(i));
+                }
+            }
+
+            String[] toReturn = new String[list.size()];
+
+            for (int i = 0; i < list.size(); i++) {
+                toReturn[i] = list.get(i);
+            }
+
+            for (String s:toReturn) {
+
+            }
+
+            return toReturn;
+
+
+        } catch (SQLException ex) {
+            ex.getStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public String[] cultureProperties() {
+        /*try {
+            checkConnection();
+
+            Statement statement = dbConnection.createStatement();
+
+            String query = "SELECT , address, schedule, kind_of_music FROM bars, location WHERE (bars.location_id = location.location_id);";
+            ResultSet resultSet = statement.executeQuery(query);
+
+            LinkedList<String> list = new LinkedList<>();
+            while (resultSet.next()){
+                for (int i = 1; i <5 ; i++) {
+                    list.add(resultSet.getString(i));
+                }
+            }
+
+            String[] toReturn = new String[list.size()];
+
+            for (int i = 0; i < list.size(); i++) {
+                toReturn[i] = list.get(i);
+            }
+
+            for (String s:toReturn) {
+
+            }
+
+            return toReturn;
+
+
+        } catch (SQLException ex) {
+            ex.getStackTrace();
+        }
+        return null;*/
+        return null;
+    }
+
+    @Override
+    public String[] utilitiesProperties() {
+        try {
+            checkConnection();
+
+            Statement statement = dbConnection.createStatement();
+
+            String query = "SELECT Utility_name, utility_phone, address FROM Utilities, location WHERE (Utilities.location_id = location.location_id);";
+            ResultSet resultSet = statement.executeQuery(query);
+
+            LinkedList<String> list = new LinkedList<>();
+            while (resultSet.next()){
+                for (int i = 1; i <4 ; i++) {
+                    list.add(resultSet.getString(i));
+                }
+            }
+
+            String[] toReturn = new String[list.size()];
+
+            for (int i = 0; i < list.size(); i++) {
+                toReturn[i] = list.get(i);
+            }
+
+            for (String s:toReturn) {
+
+            }
+
+            return toReturn;
+
+
+        } catch (SQLException ex) {
+            ex.getStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public String[] tourismProperties() {
+        /*try {
+            checkConnection();
+
+            Statement statement = dbConnection.createStatement();
+
+            String query = "SELECT , address, schedule, kind_of_music FROM bars, location WHERE (bars.location_id = location.location_id);";
+            ResultSet resultSet = statement.executeQuery(query);
+
+            LinkedList<String> list = new LinkedList<>();
+            while (resultSet.next()){
+                for (int i = 1; i <5 ; i++) {
+                    list.add(resultSet.getString(i));
+                }
+            }
+
+            String[] toReturn = new String[list.size()];
+
+            for (int i = 0; i < list.size(); i++) {
+                toReturn[i] = list.get(i);
+            }
+
+            for (String s:toReturn) {
+
+            }
+
+            return toReturn;
+
+
+        } catch (SQLException ex) {
+            ex.getStackTrace();
+        }*/
+        return null;
+    }
+
+    @Override
+    public String[] padawansProperties() {/*
+        try {
+            checkConnection();
+
+            Statement statement = dbConnection.createStatement();
+
+            String query = "SELECT bar_name, address, schedule, kind_of_music FROM bars, location WHERE (bars.location_id = location.location_id);";
+            ResultSet resultSet = statement.executeQuery(query);
+
+            LinkedList<String> list = new LinkedList<>();
+            while (resultSet.next()){
+                for (int i = 1; i <5 ; i++) {
+                    list.add(resultSet.getString(i));
+                }
+            }
+
+            String[] toReturn = new String[list.size()];
+
+            for (int i = 0; i < list.size(); i++) {
+                toReturn[i] = list.get(i);
+            }
+
+            for (String s:toReturn) {
+
+            }
+
+            return toReturn;
+
+
+        } catch (SQLException ex) {
+            ex.getStackTrace();
+        }*/
         return null;
     }
 }

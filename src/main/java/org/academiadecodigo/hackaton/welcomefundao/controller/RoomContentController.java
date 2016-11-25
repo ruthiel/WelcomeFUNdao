@@ -1,10 +1,13 @@
 package org.academiadecodigo.hackaton.welcomefundao.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import org.academiadecodigo.hackaton.welcomefundao.Client;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -13,12 +16,31 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import org.academiadecodigo.hackaton.welcomefundao.Navigation;
+import org.academiadecodigo.hackaton.welcomefundao.Parser;
 
 /**
  * Created by codecadet on 25/11/16.
  */
 public class RoomContentController implements Initializable {
     Client client;
+    private String[] results;
+    private int actual;
+
+    public void loadResults(String[] s) {
+
+        results = s;
+
+        //item_image.setImage(new Image(results[0]));
+        phone.setText(results[1]);
+        item_description.setText(results[2]);
+        item_title.setText(results[3]);
+        address.setText(results[4]);
+
+        actual = 5;
+
+
+    }
+
 
     @FXML
     private ImageView rentRoom;
@@ -91,14 +113,57 @@ public class RoomContentController implements Initializable {
 
     @FXML
     void emergencyClick(MouseEvent event) {
-        Navigation.getInstance().loadScreen("EmergencyContent");
-        ((EmergencyContentController)Navigation.getInstance().getController("EmergencyContent")).setClient(client);
+        String[] s = {"", ""};
+        Parser parser = new Parser("utilitiesProperties", s);
+        client.sendMessage(parser);
+
+
+        try {
+            String message = client.getIn().readLine();
+            ObjectMapper om = new ObjectMapper();
+
+            if (message == null) {
+                //
+                System.out.println("null");
+            } else {
+                s = om.readValue(message, String[].class);
+
+                Navigation.getInstance().loadScreen("EmergencyContent");
+                ((EmergencyContentController) Navigation.getInstance().getController("EmergencyContent")).setClient(client);
+
+                ((EmergencyContentController) Navigation.getInstance().getController("EmergencyContent")).loadResults(s);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void foodClick(MouseEvent event) {
-        Navigation.getInstance().loadScreen("foodContent");
-        ((FoodContentController)Navigation.getInstance().getController("foodContent")).setClient(client);
+        String[] s = {"", ""};
+        Parser parser = new Parser("foodProperties", s);
+        client.sendMessage(parser);
+
+
+        try {
+            String message = client.getIn().readLine();
+            ObjectMapper om = new ObjectMapper();
+
+            if (message == null) {
+                //
+                System.out.println("null");
+            } else {
+                s = om.readValue(message, String[].class);
+
+                Navigation.getInstance().loadScreen("foodContent");
+                ((FoodContentController) Navigation.getInstance().getController("foodContent")).setClient(client);
+
+                ((FoodContentController) Navigation.getInstance().getController("foodContent")).loadResults(s);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @FXML
@@ -109,13 +174,79 @@ public class RoomContentController implements Initializable {
 
     @FXML
     void nextOnList(MouseEvent event) {
+        if (actual < results.length) {
+            //item_image.setImage(new Image(results[0]));
+            phone.setText(results[actual + 1]);
+            item_description.setText(results[actual +2]);
+            item_title.setText(results[actual +3]);
+            address.setText(results[actual +4]);
+            actual = actual+5;
+        }
+    }
 
+    @FXML
+    void previousOnList(MouseEvent event) {
+        if (actual - 5 > 0) {
+            actual -= 10;
+            //item_image.setImage(new Image(results[0]));
+            phone.setText(results[actual + 1]);
+            item_description.setText(results[actual +2]);
+            item_title.setText(results[actual +3]);
+            address.setText(results[actual +4]);
+            actual = actual+5;
+        }
     }
 
     @FXML
     void nightLifeClick(MouseEvent event) {
-        Navigation.getInstance().loadScreen("barContent");
-        ((BarContentController)Navigation.getInstance().getController("barContent")).setClient(client);
+        String[] s = {"", ""};
+        Parser parser = new Parser("barProperties", s);
+        client.sendMessage(parser);
+
+
+        try {
+            String message = client.getIn().readLine();
+            ObjectMapper om = new ObjectMapper();
+
+            if (message == null) {
+                //
+                System.out.println("null");
+            } else {
+                s = om.readValue(message, String[].class);
+
+                Navigation.getInstance().loadScreen("barContent");
+                ((BarContentController) Navigation.getInstance().getController("barContent")).setClient(client);
+
+                ((BarContentController) Navigation.getInstance().getController("barContent")).loadResults(s);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private Button hiddenGame;
+
+    @FXML
+    private Button hiddenLadies;
+
+    @FXML
+    void hiddenGameClick(ActionEvent event) {
+        Navigation.getInstance().loadScreen("GameEaster");
+        ((GameEasterController) Navigation.getInstance().getController("GameEaster")).setClient(client);
+
+    }
+
+    @FXML
+    void ladiesClick(ActionEvent event) {
+        Navigation.getInstance().loadScreen("heartEaster");
+        ((HeartEasterController) Navigation.getInstance().getController("heartEaster")).setClient(client);
+    }
+
+    @FXML
+    void mainMenuClick(MouseEvent event){
+        Navigation.getInstance().loadScreen("MainMenu");
+        ((MainMenuController) Navigation.getInstance().getController("MainMenu")).setClient(client);
     }
 
     @FXML

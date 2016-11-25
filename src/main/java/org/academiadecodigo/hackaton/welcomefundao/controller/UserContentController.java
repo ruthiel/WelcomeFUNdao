@@ -1,16 +1,20 @@
 package org.academiadecodigo.hackaton.welcomefundao.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import org.academiadecodigo.hackaton.welcomefundao.Client;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import org.academiadecodigo.hackaton.welcomefundao.Navigation;
+import org.academiadecodigo.hackaton.welcomefundao.Parser;
 
 /**
  * Created by codecadet on 25/11/16.
@@ -56,7 +60,8 @@ public class UserContentController implements Initializable {
 
     @FXML
     void academiaClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("AcademiaMenu");
+        ((AcademiaMenuController) Navigation.getInstance().getController("AcademiaMenu")).setClient(client);
     }
 
     @FXML
@@ -70,38 +75,114 @@ public class UserContentController implements Initializable {
     }
 
     @FXML
+    void mainMenuClick(MouseEvent event){
+        Navigation.getInstance().loadScreen("MainMenu");
+        ((MainMenuController) Navigation.getInstance().getController("MainMenu")).setClient(client);
+    }
+
+    @FXML
     void changePassword(ActionEvent event) {
 
     }
 
     @FXML
     void cultureClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("culturalContent");
+        ((CulturalContentController) Navigation.getInstance().getController("culturalContent")).setClient(client);
     }
 
     @FXML
     void emergencyClick(MouseEvent event) {
+        String[] s = {"", ""};
+        Parser parser = new Parser("utilitiesProperties", s);
+        client.sendMessage(parser);
 
+
+        try {
+            String message = client.getIn().readLine();
+            ObjectMapper om = new ObjectMapper();
+
+            if (message == null) {
+                //
+                System.out.println("null");
+            } else {
+                s = om.readValue(message, String[].class);
+
+                Navigation.getInstance().loadScreen("EmergencyContent");
+                ((EmergencyContentController) Navigation.getInstance().getController("EmergencyContent")).setClient(client);
+
+                ((EmergencyContentController) Navigation.getInstance().getController("EmergencyContent")).loadResults(s);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void foodClick(MouseEvent event) {
+        String[] s = {"", ""};
+        Parser parser = new Parser("foodProperties", s);
+        client.sendMessage(parser);
+
+
+        try {
+            String message = client.getIn().readLine();
+            ObjectMapper om = new ObjectMapper();
+
+            if (message == null) {
+                //
+                System.out.println("null");
+            } else {
+                s = om.readValue(message, String[].class);
+
+                Navigation.getInstance().loadScreen("foodContent");
+                ((FoodContentController) Navigation.getInstance().getController("foodContent")).setClient(client);
+
+                ((FoodContentController) Navigation.getInstance().getController("foodContent")).loadResults(s);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @FXML
     void interestClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("TourismContent");
+        ((TourismController) Navigation.getInstance().getController("TourismContent")).setClient(client);
     }
 
     @FXML
     void nightLifeClick(MouseEvent event) {
+        String[] s = {"", ""};
+        Parser parser = new Parser("barProperties", s);
+        client.sendMessage(parser);
 
+
+        try {
+            String message = client.getIn().readLine();
+            ObjectMapper om = new ObjectMapper();
+
+            if (message == null) {
+                //
+                System.out.println("null");
+            } else {
+                s = om.readValue(message, String[].class);
+
+                Navigation.getInstance().loadScreen("barContent");
+                ((BarContentController) Navigation.getInstance().getController("barContent")).setClient(client);
+
+                ((BarContentController) Navigation.getInstance().getController("barContent")).loadResults(s);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void rentRoomClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("accommodationMenu");
+        ((AccomodationMenuController) Navigation.getInstance().getController("accommodationMenu")).setClient(client);
     }
 
     @FXML

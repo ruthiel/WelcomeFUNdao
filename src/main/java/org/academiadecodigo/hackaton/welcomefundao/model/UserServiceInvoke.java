@@ -36,6 +36,19 @@ public class UserServiceInvoke {
         return jdbcUserService.roomsProperties();
     }
 
+    public String[] foodProperties(String[] args){
+        System.out.println("here on food");
+        return jdbcUserService.foodProperties();
+    }
+
+    public String[] barProperties(String[] args){
+        return jdbcUserService.barProperties();
+    }
+
+    public String[] utilitiesProperties(String[] args) {
+        return jdbcUserService.utilitiesProperties();
+    }
+
     public void setJdbcUserService(JdbcUserService jdbcUserService) {
         this.jdbcUserService = jdbcUserService;
     }
