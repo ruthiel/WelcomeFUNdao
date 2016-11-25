@@ -12,7 +12,6 @@ import org.academiadecodigo.hackaton.welcomefundao.model.UserService;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
 /**
@@ -86,13 +85,6 @@ public class AccomodationMenuController implements Initializable {
     @FXML
     void hotelsClick(MouseEvent event) {
 
-        /*String[] r = (String[]) o;
-        System.out.println(r);
-
-        out.write(om.writeValueAsString(r).getBytes());
-        out.write("\n".getBytes());
-        out.flush();*/
-
         String[] s = {"", ""};
         Parser parser = new Parser("hotelsProperties", s);
         client.sendMessage(parser);
@@ -118,8 +110,8 @@ public class AccomodationMenuController implements Initializable {
         }
 
 
-        Navigation.getInstance().loadScreen("hotelContent");
-        ((HotelController) Navigation.getInstance().getController("hotelContent")).setClient(client);
+       /* Navigation.getInstance().loadScreen("hotelContent");
+        ((HotelController) Navigation.getInstance().getController("hotelContent")).setClient(client);*/
     }
 
     @FXML
@@ -148,7 +140,29 @@ public class AccomodationMenuController implements Initializable {
 
     @FXML
     void roomsClick(MouseEvent event) {
+        String[] s = {"", ""};
+        Parser parser = new Parser("roomsProperties", s);
+        client.sendMessage(parser);
 
+
+        try {
+            String message = client.getIn().readLine();
+            ObjectMapper om = new ObjectMapper();
+
+            if (message == null) {
+                //
+                System.out.println("null");
+            } else {
+                s = om.readValue(message, String[].class);
+
+                Navigation.getInstance().loadScreen("");
+                ((RoomContentController) Navigation.getInstance().getController("")).setClient(client);
+
+                ((RoomContentController) Navigation.getInstance().getController("")).loadResults(s);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

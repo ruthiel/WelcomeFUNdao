@@ -12,8 +12,6 @@ import org.academiadecodigo.hackaton.welcomefundao.Navigation;
 import org.academiadecodigo.hackaton.welcomefundao.model.UserService;
 
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 /**
@@ -23,28 +21,26 @@ public class HotelController implements Initializable {
     private UserService userService;
     private Client client;
     private String[] results;
+    private int actual;
+
 
     public HotelController() {
-        System.out.println("i am being constructed");
+        System.out.println("reloading");
     }
 
-    public void loadResults(String[] results) {
+    public void loadResults(String[] s) {
         System.out.println("Loading");
         System.out.println("my name is:" + Thread.currentThread().getName());
-        System.out.println("this.results are:" + this.results);
-        this.results = results;
+        System.out.println("this.results are:");
+        results = s;
 
-        for (String r:results) {
-            System.out.println(r);
-        }
-
-        //item_image.setImage(new Image(results[5]));
+        //item_image.setImage(new Image(results[0]));
         item_title.setText(results[1]);
         address.setText(results[2]);
         phone.setText(results[3]);
         avg_price.setText(results[4]);
+        actual = 5;
 
-        System.out.println(this.results);
 
     }
 
@@ -102,18 +98,8 @@ public class HotelController implements Initializable {
 
     @FXML
     void academiaClick(MouseEvent event) {
-        System.out.println("my name is (inside academiaClick):" + Thread.currentThread().getName());
-
-        System.out.println("clicked");
-        System.out.println(results.length);
-        System.out.println("again");
-        item_title.setText(results[1]);
-        address.setText(results[2]);
-        phone.setText(results[3]);
-        avg_price.setText(results[4]);
-
-        /*Navigation.getInstance().loadScreen("AcademiaMenu");
-        ((AcademiaMenuController) Navigation.getInstance().getController("AcademiaMenu")).setClient(client);*/
+        Navigation.getInstance().loadScreen("AcademiaMenu");
+        ((AcademiaMenuController) Navigation.getInstance().getController("AcademiaMenu")).setClient(client);
     }
 
     @FXML
@@ -172,10 +158,29 @@ public class HotelController implements Initializable {
     void queryNearestClick(ActionEvent event) {
 
     }
+    @FXML
+    void previousOnList(MouseEvent event) {
+        if (actual - 5 > 0) {
+            actual -= 10;
+            //item_image.setImage(new Image(results[0]));
+            item_title.setText(results[actual+1]);
+            address.setText(results[actual+2]);
+            phone.setText(results[actual+3]);
+            avg_price.setText(results[actual+4]);
+            actual = actual+5;
+        }
+    }
 
     @FXML
     void nextOnList(MouseEvent event) {
-
+        if (actual < results.length) {
+            //item_image.setImage(new Image(results[0]));
+            item_title.setText(results[actual+1]);
+            address.setText(results[actual+2]);
+            phone.setText(results[actual+3]);
+            avg_price.setText(results[actual+4]);
+            actual = actual+5;
+        }
     }
 
     @Override

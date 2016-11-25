@@ -34,7 +34,7 @@ public final class Navigation {
     public void loadScreen(String view) {
         try {
 
-            
+
             // Instantiate the view and the controller
             FXMLLoader fxmlLoader;
             fxmlLoader = new FXMLLoader(getClass().getResource("/view/" +view + ".fxml"));

@@ -32,6 +32,10 @@ public class UserServiceInvoke {
         return jdbcUserService.hotelsProperties();
     }
 
+    public String[] roomsProperties(String[] args){
+        return jdbcUserService.roomsProperties();
+    }
+
     public void setJdbcUserService(JdbcUserService jdbcUserService) {
         this.jdbcUserService = jdbcUserService;
     }

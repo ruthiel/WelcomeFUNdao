@@ -177,7 +177,7 @@
                <children>
                   <AnchorPane prefHeight="54.0" prefWidth="425.0">
                      <children>
-                        <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="340.0">
+                        <ImageView fx:id="previousOnList" fitHeight="50.0" fitWidth="200.0" onMouseClicked="#previousOnList" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="340.0">
                            <image>
                               <Image url="@../previous.png" />
                            </image>
