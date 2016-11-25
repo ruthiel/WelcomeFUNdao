@@ -11,11 +11,12 @@ import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.Socket;
+import java.sql.ResultSet;
 
 /**
  * Created by codecadet on 24/11/16.
  */
-public class ClientHandler implements Runnable, Serializable {
+public class ClientHandler implements Runnable {
     private DataOutputStream out;
     private Socket clientSocket;
 
@@ -54,7 +55,25 @@ public class ClientHandler implements Runnable, Serializable {
 
 
                 Method method = userServiceInvoke.getClass().getMethod(parser.getMethodName(), parser.getArgs().getClass());
-                method.invoke(userServiceInvoke, new Object[]{parser.getArgs()});
+                //Class<?> t = method.getReturnType();
+                Object o = method.invoke(userServiceInvoke, new Object[]{parser.getArgs()});
+
+                if(o instanceof Boolean){
+                    boolean b = (boolean)o;
+                    out.write(om.writeValueAsString(b).getBytes());
+                    out.write("\n".getBytes());
+                    out.flush();
+                }else {
+                    String[] r = (String[]) o;
+                    System.out.println(r);
+
+                    out.write(om.writeValueAsString(r).getBytes());
+                    out.write("\n".getBytes());
+                    out.flush();
+                }
+
+
+
             }
 
 

@@ -28,12 +28,12 @@
                <children>
                   <HBox prefHeight="44.0" prefWidth="881.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="15.0">
                      <children>
-                        <ImageView fx:id="rentRoom" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#rentRoomClick" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="rentRoom" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#rentRoomClick" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../bed2.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="10.0" right="10.0" top="10.0" />
+                              <Insets left="10.0" right="10.0" top="40.0" />
                            </HBox.margin>
                         </ImageView>
                         <ImageView fx:id="food" blendMode="SRC_ATOP" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#foodClick" pickOnBounds="true" preserveRatio="true">

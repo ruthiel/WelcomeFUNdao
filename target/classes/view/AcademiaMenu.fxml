@@ -52,12 +52,12 @@
                               <Insets left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <ImageView fx:id="academia" fitHeight="150.0" fitWidth="50.0" onMouseClicked="#academiaClick" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="academia" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#academiaClick" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../imac.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="10.0" right="10.0" top="10.0" />
+                              <Insets left="10.0" right="10.0" top="40.0" />
                            </HBox.margin>
                         </ImageView>
                         <ImageView fx:id="nightLife" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#nightLifeClick" pickOnBounds="true" preserveRatio="true">

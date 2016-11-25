@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import org.academiadecodigo.hackaton.welcomefundao.Navigation;
+import org.academiadecodigo.hackaton.welcomefundao.model.UserService;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -46,6 +47,12 @@ public class AccomodationMenuController implements Initializable {
     @FXML
     private ImageView rooms;
 
+    private UserService userService;
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
     @FXML
     void academiaClick(MouseEvent event) {
         Navigation.getInstance().loadScreen("AcademiaMenu");
@@ -68,7 +75,8 @@ public class AccomodationMenuController implements Initializable {
 
     @FXML
     void hotelsClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("hotelContent");
+        ((HotelController)Navigation.getInstance().getController("hotelContent")).setUserService(userService);
     }
 
     @FXML
@@ -90,6 +98,7 @@ public class AccomodationMenuController implements Initializable {
     void rentRoomClick(MouseEvent event) {
 
     }
+
 
     @FXML
     void roomsClick(MouseEvent event) {

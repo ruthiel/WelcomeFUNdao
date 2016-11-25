@@ -31,9 +31,9 @@ public class Player {
 
             // Cursor's initial position
             ObjectMapper om = new ObjectMapper();
-            String[] args = {"authenticate", "Eurico Fonseca", "teste"};
+            String[] args = {"Eurico Fonseca", "teste"};
 
-            Parser parser = new Parser("invoke", args);
+            Parser parser = new Parser("hotelsProperties", args);
 
             String s = om.writeValueAsString(parser);
 
@@ -42,7 +42,7 @@ public class Player {
             out.write("\n".getBytes());
             out.flush();
 
-            in.readLine();
+            System.out.println(in.readLine());
 
         } catch (IOException e) {
             e.printStackTrace();

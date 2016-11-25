@@ -78,6 +78,7 @@ public class MainMenuController implements Initializable {
     @FXML
     void rentRoomClick(MouseEvent event) {
         Navigation.getInstance().loadScreen("accommodationMenu");
+        ((AccomodationMenuController)Navigation.getInstance().getController("accommodationMenu")).setUserService(userService);
     }
 
     @FXML
