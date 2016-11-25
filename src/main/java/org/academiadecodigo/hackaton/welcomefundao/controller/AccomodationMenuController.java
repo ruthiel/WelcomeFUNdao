@@ -2,24 +2,17 @@ package org.academiadecodigo.hackaton.welcomefundao.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import org.academiadecodigo.hackaton.welcomefundao.Navigation;
-import org.academiadecodigo.hackaton.welcomefundao.model.UserService;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Created by codecadet on 24/11/16.
+ * Created by codecadet on 25/11/16.
  */
-public class MainMenuController implements Initializable {
-    private UserService userService;
-
-    @FXML
-    private Label textMenu;
-
+public class AccomodationMenuController implements Initializable {
     @FXML
     private ImageView rentRoom;
 
@@ -45,9 +38,17 @@ public class MainMenuController implements Initializable {
     private ImageView settings;
 
     @FXML
+    private ImageView hotels;
+
+    @FXML
+    private ImageView houses;
+
+    @FXML
+    private ImageView rooms;
+
+    @FXML
     void academiaClick(MouseEvent event) {
         Navigation.getInstance().loadScreen("AcademiaMenu");
-        //((MainMenuController)Navigation.getInstance().getController("MainMenu")).setUserService(userService);
     }
 
     @FXML
@@ -66,6 +67,16 @@ public class MainMenuController implements Initializable {
     }
 
     @FXML
+    void hotelsClick(MouseEvent event) {
+
+    }
+
+    @FXML
+    void housesClick(MouseEvent event) {
+
+    }
+
+    @FXML
     void interestClick(MouseEvent event) {
 
     }
@@ -77,7 +88,12 @@ public class MainMenuController implements Initializable {
 
     @FXML
     void rentRoomClick(MouseEvent event) {
-        Navigation.getInstance().loadScreen("accommodationMenu");
+
+    }
+
+    @FXML
+    void roomsClick(MouseEvent event) {
+
     }
 
     @FXML
@@ -86,12 +102,9 @@ public class MainMenuController implements Initializable {
     }
 
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-    }
-
-    public void setUserService(UserService userService) {
-        this.userService = userService;
     }
 }

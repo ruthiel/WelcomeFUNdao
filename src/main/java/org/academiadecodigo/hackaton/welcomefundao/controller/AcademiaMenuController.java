@@ -2,24 +2,17 @@ package org.academiadecodigo.hackaton.welcomefundao.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import org.academiadecodigo.hackaton.welcomefundao.Navigation;
-import org.academiadecodigo.hackaton.welcomefundao.model.UserService;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
- * Created by codecadet on 24/11/16.
+ * Created by codecadet on 25/11/16.
  */
-public class MainMenuController implements Initializable {
-    private UserService userService;
-
-    @FXML
-    private Label textMenu;
-
+public class AcademiaMenuController implements Initializable{
     @FXML
     private ImageView rentRoom;
 
@@ -45,9 +38,27 @@ public class MainMenuController implements Initializable {
     private ImageView settings;
 
     @FXML
+    private ImageView padawans;
+
+    @FXML
+    private ImageView books;
+
+    @FXML
+    private ImageView code;
+
+    @FXML
     void academiaClick(MouseEvent event) {
-        Navigation.getInstance().loadScreen("AcademiaMenu");
-        //((MainMenuController)Navigation.getInstance().getController("MainMenu")).setUserService(userService);
+
+    }
+
+    @FXML
+    void booksClick(MouseEvent event) {
+
+    }
+
+    @FXML
+    void codeClick(MouseEvent event) {
+
     }
 
     @FXML
@@ -76,6 +87,11 @@ public class MainMenuController implements Initializable {
     }
 
     @FXML
+    void padawansClick(MouseEvent event) {
+
+    }
+
+    @FXML
     void rentRoomClick(MouseEvent event) {
         Navigation.getInstance().loadScreen("accommodationMenu");
     }
@@ -86,12 +102,9 @@ public class MainMenuController implements Initializable {
     }
 
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-    }
-
-    public void setUserService(UserService userService) {
-        this.userService = userService;
     }
 }

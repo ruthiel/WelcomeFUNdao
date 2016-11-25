@@ -36,7 +36,6 @@ public class ClientHandler implements Runnable, Serializable {
             while (true) {
                 //wait for Client request
                 reader = in.readLine();
-                System.out.println(reader);
 
                 if (reader == null) {
                     System.out.println("closing connection");
