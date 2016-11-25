@@ -53,6 +53,7 @@ public class ClientHandler implements Runnable {
 
                 userServiceInvoke.setJdbcUserService((JdbcUserService) userService);
 
+                System.out.println("before converting");
 
                 Method method = userServiceInvoke.getClass().getMethod(parser.getMethodName(), parser.getArgs().getClass());
                 //Class<?> t = method.getReturnType();

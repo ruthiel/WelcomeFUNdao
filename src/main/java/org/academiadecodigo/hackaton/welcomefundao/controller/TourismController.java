@@ -1,20 +1,21 @@
 package org.academiadecodigo.hackaton.welcomefundao.controller;
 
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import org.academiadecodigo.hackaton.welcomefundao.Client;
-import org.academiadecodigo.hackaton.welcomefundao.Navigation;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 /**
  * Created by codecadet on 25/11/16.
  */
-public class AcademiaMenuController implements Initializable{
-    private Client client;
+public class TourismController implements Initializable {
+    Client client;
+
     @FXML
     private ImageView rentRoom;
 
@@ -40,26 +41,25 @@ public class AcademiaMenuController implements Initializable{
     private ImageView settings;
 
     @FXML
-    private ImageView padawans;
+    private Label item_title;
 
     @FXML
-    private ImageView books;
+    private Label phone;
 
     @FXML
-    private ImageView code;
+    private Label address;
+
+    @FXML
+    private Label website;
+
+    @FXML
+    private ImageView item_image;
+
+    @FXML
+    private ImageView nextOnList;
 
     @FXML
     void academiaClick(MouseEvent event) {
-
-    }
-
-    @FXML
-    void booksClick(MouseEvent event) {
-
-    }
-
-    @FXML
-    void codeClick(MouseEvent event) {
 
     }
 
@@ -84,19 +84,18 @@ public class AcademiaMenuController implements Initializable{
     }
 
     @FXML
+    void nextOnList(MouseEvent event) {
+
+    }
+
+    @FXML
     void nightLifeClick(MouseEvent event) {
 
     }
 
     @FXML
-    void padawansClick(MouseEvent event) {
-
-    }
-
-    @FXML
     void rentRoomClick(MouseEvent event) {
-        Navigation.getInstance().loadScreen("accommodationMenu");
-        ((AccomodationMenuController)Navigation.getInstance().getController("accommodationMenu")).setClient(client);
+
     }
 
     @FXML
@@ -104,14 +103,12 @@ public class AcademiaMenuController implements Initializable{
 
     }
 
-
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
     }
 }

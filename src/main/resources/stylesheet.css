@@ -19,3 +19,14 @@
     -fx-text-fill: #ECF0F1;
 
 }
+
+#query_menu{
+    -fx-padding: 5 22 5 22;
+    -fx-border-color: #fccc65;
+    -fx-background-radius: 0;
+    -fx-background-color: #fccc65;
+    -fx-font-family: "Oswald", sans-serif;
+    -fx-font-size: 8pt;
+    -fx-text-fill: #BdC3C7;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}

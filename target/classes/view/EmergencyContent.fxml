@@ -2,8 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,11 +14,11 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.hackaton.welcomefundao.controller.HotelController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EmergencyController">
    <children>
       <ImageView blendMode="SRC_ATOP" fitHeight="763.0" fitWidth="1017.0" layoutX="-55.0" layoutY="-76.0">
          <image>
-            <Image url="@/IMG_1331-as-Smart-Object-1.jpg" />
+            <Image url="@IMG_1331-as-Smart-Object-1.jpg" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e31d1a" height="500.0" layoutX="50.0" layoutY="50.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="850.0" />
@@ -32,15 +30,15 @@
                      <children>
                         <ImageView fx:id="rentRoom" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#rentRoomClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@/bed2.png" />
+                              <Image url="@bed2.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="10.0" right="10.0" top="40.0" />
+                              <Insets left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </ImageView>
                         <ImageView fx:id="food" blendMode="SRC_ATOP" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#foodClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@/pizza.png" />
+                              <Image url="@pizza.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -48,7 +46,7 @@
                         </ImageView>
                         <ImageView fx:id="interest" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#interestClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@/map.png" />
+                              <Image url="@map.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -56,7 +54,7 @@
                         </ImageView>
                         <ImageView fx:id="academia" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#academiaClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@/imac.png" />
+                              <Image url="@imac.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -64,7 +62,7 @@
                         </ImageView>
                         <ImageView fx:id="nightLife" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#nightLifeClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@/beer.png" />
+                              <Image url="@beer.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -72,7 +70,7 @@
                         </ImageView>
                         <ImageView fx:id="culture" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#cultureClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@/theater.png" />
+                              <Image url="@theater.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -80,15 +78,15 @@
                         </ImageView>
                         <ImageView fx:id="emergency" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#emergencyClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@/red-shield.png" />
+                              <Image url="@red-shield.png" />
                            </image>
                            <HBox.margin>
-                              <Insets left="10.0" right="10.0" top="10.0" />
+                              <Insets left="10.0" right="10.0" top="40.0" />
                            </HBox.margin>
                         </ImageView>
                         <ImageView fx:id="settings" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#settingsClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@/user.png" />
+                              <Image url="@user.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -100,7 +98,7 @@
                <padding>
                   <Insets left="20.0" />
                </padding></AnchorPane>
-            <GridPane prefHeight="352.0" prefWidth="850.0" stylesheets="@/stylesheet.css">
+            <GridPane prefHeight="352.0" prefWidth="850.0" stylesheets="@stylesheet.css">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.0" minWidth="0.0" prefWidth="87.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.0" minWidth="10.0" prefWidth="212.0" />
@@ -122,11 +120,6 @@
                               <Insets top="25.0" />
                            </VBox.margin>
                         </Label>
-                        <Label fx:id="item_description" prefHeight="38.0" prefWidth="432.0" text="Description" textFill="#bbc3c7">
-                           <font>
-                              <Font name="Oswald Regular" size="13.0" />
-                           </font>
-                        </Label>
                         <Label fx:id="phone" text="Phone" textFill="#ecf0f1">
                            <font>
                               <Font name="Oswald Regular" size="18.0" />
@@ -139,18 +132,10 @@
                         </Label>
                         <HBox prefHeight="44.0" prefWidth="432.0">
                            <children>
-                              <Label fx:id="avg_price" prefHeight="28.0" prefWidth="63.0" text="Average Price" textFill="#ecf0f1">
+                              <Label fx:id="website" prefHeight="28.0" prefWidth="259.0" text="Website" textFill="#ecf0f1">
                                  <font>
                                     <Font name="Oswald Regular" size="18.0" />
                                  </font>
-                              </Label>
-                              <Label fx:id="price_title" prefHeight="28.0" prefWidth="330.0" text="Average Price" textFill="#bbc3c7">
-                                 <font>
-                                    <Font name="Oswald Regular" size="13.0" />
-                                 </font>
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
                               </Label>
                            </children>
                         </HBox>
@@ -164,13 +149,6 @@
                         <ImageView fx:id="item_image" fitHeight="150.0" fitWidth="200.0" layoutX="-17.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="57.0" />
                      </children>
                   </AnchorPane>
-                  <MenuButton fx:id="query_menu" mnemonicParsing="false" styleClass="button" stylesheets="@/stylesheet.css" text="Sort By" GridPane.columnIndex="3">
-                    <items>
-                        <MenuItem fx:id="queryNearest" mnemonicParsing="false" onAction="#queryNearestClick" text="Nearest from A/C" />
-                        <MenuItem fx:id="queryHigh" mnemonicParsing="false" onAction="#queryHighClick" text="Price: High to Low" />
-                        <MenuItem fx:id="queryLow" mnemonicParsing="false" onAction="#queryLowClick" text="Price: Low to High" />
-                    </items>
-                  </MenuButton>
                </children>
             </GridPane>
             <HBox prefHeight="60.0" prefWidth="850.0">
@@ -179,7 +157,7 @@
                      <children>
                         <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="340.0">
                            <image>
-                              <Image url="@../previous.png" />
+                              <Image url="@../Downloads/previous.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -188,7 +166,7 @@
                      <children>
                         <ImageView fx:id="nextOnList" fitHeight="50.0" fitWidth="200.0" onMouseClicked="#nextOnList" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="340.0">
                            <image>
-                              <Image url="@../next.png" />
+                              <Image url="@../Downloads/next.png" />
                            </image>
                         </ImageView>
                      </children>

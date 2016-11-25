@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import org.academiadecodigo.hackaton.welcomefundao.Client;
 import org.academiadecodigo.hackaton.welcomefundao.Navigation;
 import org.academiadecodigo.hackaton.welcomefundao.model.UserService;
 
@@ -16,6 +17,7 @@ import java.util.ResourceBundle;
  */
 public class MainMenuController implements Initializable {
     private UserService userService;
+    private Client client;
 
     @FXML
     private Label textMenu;
@@ -47,7 +49,7 @@ public class MainMenuController implements Initializable {
     @FXML
     void academiaClick(MouseEvent event) {
         Navigation.getInstance().loadScreen("AcademiaMenu");
-        //((MainMenuController)Navigation.getInstance().getController("MainMenu")).setUserService(userService);
+        ((AcademiaMenuController)Navigation.getInstance().getController("AcademiaMenu")).setClient(client);
     }
 
     @FXML
@@ -78,7 +80,7 @@ public class MainMenuController implements Initializable {
     @FXML
     void rentRoomClick(MouseEvent event) {
         Navigation.getInstance().loadScreen("accommodationMenu");
-        ((AccomodationMenuController)Navigation.getInstance().getController("accommodationMenu")).setUserService(userService);
+        ((AccomodationMenuController)Navigation.getInstance().getController("accommodationMenu")).setClient(client);
     }
 
     @FXML
@@ -94,5 +96,9 @@ public class MainMenuController implements Initializable {
 
     public void setUserService(UserService userService) {
         this.userService = userService;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

@@ -93,11 +93,6 @@ public class JdbcUserService implements UserService {
             checkConnection();
 
             Statement statement = dbConnection.createStatement();
-            /*String queryPhoto = "SELECT photo FROM accomodation AS a WHERE a.accomodation_id = 1;";
-            String queryName = "SELECT accomodation_name FROM accomodation AS a WHERE a.accomodation_id = 1;";
-            String queryAddress = "SELECT address FROM accomodation AS a JOIN location AS  l USING (location_id) WHERE l.location_id = 50;";
-            String queryContact = "SELECT contact FROM accomodation AS a WHERE a.accomodation_id = 1;";
-            String queryAvgPrice = "SELECT average_price FROM accomodation AS a WHERE a.accomodation_id = 1;";*/
 
             String query = "SELECT photo, accomodation_name, address, contact, average_price FROM accomodation, location WHERE (accomodation.location_id = location.location_id);";
             ResultSet resultSet = statement.executeQuery(query);
@@ -116,9 +111,6 @@ public class JdbcUserService implements UserService {
             }
 
             return toReturn;
-
-
-            //return resultSet;
 
 
         } catch (SQLException ex) {

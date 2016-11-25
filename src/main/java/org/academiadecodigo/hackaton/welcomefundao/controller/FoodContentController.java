@@ -1,31 +1,23 @@
 package org.academiadecodigo.hackaton.welcomefundao.controller;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import org.academiadecodigo.hackaton.welcomefundao.Client;
-import org.academiadecodigo.hackaton.welcomefundao.model.UserService;
 
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
+import javafx.scene.image.ImageView;
 
 /**
  * Created by codecadet on 25/11/16.
  */
-public class HotelController implements Initializable {
-    private UserService userService;
-    private Client client;
-
-
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
+public class FoodContentController implements Initializable {
+    Client client;
 
     @FXML
     private ImageView rentRoom;
@@ -61,9 +53,6 @@ public class HotelController implements Initializable {
     private Label phone;
 
     @FXML
-    private Label email;
-
-    @FXML
     private Label address;
 
     @FXML
@@ -73,25 +62,47 @@ public class HotelController implements Initializable {
     private Label price_title;
 
     @FXML
+    private Label type_food;
+
+    @FXML
+    private Label food_title;
+
+    @FXML
+    private Label distance;
+
+    @FXML
+    private Label distance_AC;
+
+    @FXML
+    private Label website;
+
+    @FXML
+    private Label stars;
+
+    @FXML
+    private Label stars_title;
+
+    @FXML
     private ImageView item_image;
 
     @FXML
-    void academiaClick(MouseEvent event) {
-     /*   ResultSet resultSet = userService.hotelsProperties();
-        System.out.println("here");
+    private MenuButton query_menu;
 
-        try {
-            if (resultSet.next()) {
-                System.out.println(resultSet.getString(2));
-                item_image.setImage(new Image("https://pbs.twimg.com/profile_images/594944901424488448/51V9SvIo.jpg"));
-                item_title.setText(resultSet.getString(2));
-                address.setText(resultSet.getString(3));
-                phone.setText(resultSet.getString(4));
-                avg_price.setText(resultSet.getString(5) + "€");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
+    @FXML
+    private MenuItem queryNearest;
+
+    @FXML
+    private MenuItem queryHigh;
+
+    @FXML
+    private MenuItem queryLow;
+
+    @FXML
+    private ImageView nextOnList;
+
+    @FXML
+    void academiaClick(MouseEvent event) {
+
     }
 
     @FXML
@@ -115,17 +126,12 @@ public class HotelController implements Initializable {
     }
 
     @FXML
+    void nextOnList(MouseEvent event) {
+
+    }
+
+    @FXML
     void nightLifeClick(MouseEvent event) {
-
-    }
-
-    @FXML
-    void rentRoomClick(MouseEvent event) {
-
-    }
-
-    @FXML
-    void settingsClick(MouseEvent event) {
 
     }
 
@@ -145,16 +151,21 @@ public class HotelController implements Initializable {
     }
 
     @FXML
-    void nextOnList(MouseEvent event) {
+    void rentRoomClick(MouseEvent event) {
 
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    @FXML
+    void settingsClick(MouseEvent event) {
 
     }
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
 }
