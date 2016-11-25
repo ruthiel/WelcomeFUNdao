@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import org.academiadecodigo.hackaton.welcomefundao.Navigation;
 
 /**
  * Created by codecadet on 25/11/16.
@@ -60,12 +61,14 @@ public class EmergencyContentController implements Initializable {
 
     @FXML
     void academiaClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("AcademiaMenu");
+        ((AcademiaMenuController)Navigation.getInstance().getController("AcademiaMenu")).setClient(client);
     }
 
     @FXML
     void cultureClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("culturalContent");
+        ((CulturalContentController)Navigation.getInstance().getController("culturalContent")).setClient(client);
     }
 
     @FXML
@@ -75,12 +78,14 @@ public class EmergencyContentController implements Initializable {
 
     @FXML
     void foodClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("foodContent");
+        ((FoodContentController)Navigation.getInstance().getController("foodContent")).setClient(client);
     }
 
     @FXML
     void interestClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("TourismContent");
+        ((TourismController)Navigation.getInstance().getController("TourismContent")).setClient(client);
     }
 
     @FXML
@@ -90,17 +95,20 @@ public class EmergencyContentController implements Initializable {
 
     @FXML
     void nightLifeClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("barContent");
+        ((BarContentController)Navigation.getInstance().getController("barContent")).setClient(client);
     }
 
     @FXML
     void rentRoomClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("accommodationMenu");
+        ((AccomodationMenuController)Navigation.getInstance().getController("accommodationMenu")).setClient(client);
     }
 
     @FXML
     void settingsClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("userContent");
+        ((UserContentController)Navigation.getInstance().getController("userContent")).setClient(client);
     }
 
 

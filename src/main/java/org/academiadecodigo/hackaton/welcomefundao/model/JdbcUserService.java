@@ -94,10 +94,10 @@ public class JdbcUserService implements UserService {
 
             Statement statement = dbConnection.createStatement();
 
-            String query = "SELECT photo, accomodation_name, address, contact, average_price FROM accomodation, location WHERE (accomodation.location_id = location.location_id);";
+            String query = "SELECT accomodation_photo, accomodation_name, address, contact, average_price FROM accomodation, location WHERE (accomodation.location_id = location.location_id);";
             ResultSet resultSet = statement.executeQuery(query);
 
-            LinkedList<String > list = new LinkedList();
+            LinkedList<String> list = new LinkedList<>();
             while (resultSet.next()){
                 for (int i = 1; i <6 ; i++) {
                     list.add(resultSet.getString(i));
@@ -108,6 +108,10 @@ public class JdbcUserService implements UserService {
 
             for (int i = 0; i < list.size(); i++) {
                 toReturn[i] = list.get(i);
+            }
+
+            for (String s:toReturn) {
+
             }
 
             return toReturn;

@@ -14,11 +14,11 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HotelController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.academiadecodigo.hackaton.welcomefundao.controller.CulturalContentController">
    <children>
       <ImageView blendMode="SRC_ATOP" fitHeight="763.0" fitWidth="1017.0" layoutX="-55.0" layoutY="-76.0">
          <image>
-            <Image url="@IMG_1331-as-Smart-Object-1.jpg" />
+            <Image url="@/IMG_1331-as-Smart-Object-1.jpg" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e31d1a" height="500.0" layoutX="50.0" layoutY="50.0" opacity="0.6" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="850.0" />
@@ -30,7 +30,7 @@
                      <children>
                         <ImageView fx:id="rentRoom" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#rentRoomClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Downloads/bed2.png" />
+                              <Image url="@../bed2.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -38,7 +38,7 @@
                         </ImageView>
                         <ImageView fx:id="food" blendMode="SRC_ATOP" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#foodClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Downloads/pizza.png" />
+                              <Image url="@../pizza.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -46,7 +46,7 @@
                         </ImageView>
                         <ImageView fx:id="interest" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#interestClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Downloads/map.png" />
+                              <Image url="@../map.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -54,7 +54,7 @@
                         </ImageView>
                         <ImageView fx:id="academia" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#academiaClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Downloads/imac.png" />
+                              <Image url="@../imac.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -62,7 +62,7 @@
                         </ImageView>
                         <ImageView fx:id="nightLife" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#nightLifeClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Downloads/beer.png" />
+                              <Image url="@../beer.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -70,7 +70,7 @@
                         </ImageView>
                         <ImageView fx:id="culture" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#cultureClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Downloads/theater.png" />
+                              <Image url="@../theater.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" top="40.0" />
@@ -78,7 +78,7 @@
                         </ImageView>
                         <ImageView fx:id="emergency" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#emergencyClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Downloads/red-shield.png" />
+                              <Image url="@../red-shield.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -86,7 +86,7 @@
                         </ImageView>
                         <ImageView fx:id="settings" fitHeight="150.0" fitWidth="40.0" onMouseClicked="#settingsClick" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../Downloads/user.png" />
+                              <Image url="@../user.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" right="10.0" top="10.0" />
@@ -158,7 +158,7 @@
                      <children>
                         <ImageView fitHeight="50.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="340.0">
                            <image>
-                              <Image url="@../Downloads/previous.png" />
+                              <Image url="@../previous.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -167,7 +167,7 @@
                      <children>
                         <ImageView fx:id="nextOnList" fitHeight="50.0" fitWidth="200.0" onMouseClicked="#nextOnList" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="340.0">
                            <image>
-                              <Image url="@../Downloads/next.png" />
+                              <Image url="@../next.png" />
                            </image>
                         </ImageView>
                      </children>

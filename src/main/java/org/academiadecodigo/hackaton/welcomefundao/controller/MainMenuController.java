@@ -54,27 +54,32 @@ public class MainMenuController implements Initializable {
 
     @FXML
     void cultureClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("culturalContent");
+        ((CulturalContentController)Navigation.getInstance().getController("culturalContent")).setClient(client);
     }
 
     @FXML
     void emergencyClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("EmergencyContent");
+        ((EmergencyContentController)Navigation.getInstance().getController("EmergencyContent")).setClient(client);
     }
 
     @FXML
     void foodClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("foodContent");
+        ((FoodContentController)Navigation.getInstance().getController("foodContent")).setClient(client);
     }
 
     @FXML
     void interestClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("TourismContent");
+        ((TourismController)Navigation.getInstance().getController("TourismContent")).setClient(client);
     }
 
     @FXML
     void nightLifeClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("barContent");
+        ((BarContentController)Navigation.getInstance().getController("barContent")).setClient(client);
     }
 
     @FXML
@@ -85,7 +90,8 @@ public class MainMenuController implements Initializable {
 
     @FXML
     void settingsClick(MouseEvent event) {
-
+        Navigation.getInstance().loadScreen("userContent");
+        ((UserContentController)Navigation.getInstance().getController("userContent")).setClient(client);
     }
 
 
