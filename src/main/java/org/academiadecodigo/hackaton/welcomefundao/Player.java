@@ -31,8 +31,9 @@ public class Player {
 
             // Cursor's initial position
             ObjectMapper om = new ObjectMapper();
+            String[] args = {"authenticate", "Eurico Fonseca", "teste"};
 
-            Parser parser = new Parser("authenticate", "Eurico Fonseca", "teste");
+            Parser parser = new Parser("invoke", args);
 
             String s = om.writeValueAsString(parser);
 

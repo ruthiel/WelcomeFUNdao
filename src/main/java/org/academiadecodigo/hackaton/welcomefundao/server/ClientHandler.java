@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.academiadecodigo.hackaton.welcomefundao.Parser;
 import org.academiadecodigo.hackaton.welcomefundao.model.JdbcUserService;
 import org.academiadecodigo.hackaton.welcomefundao.model.UserService;
+import org.academiadecodigo.hackaton.welcomefundao.model.UserServiceInvoke;
 import org.academiadecodigo.hackaton.welcomefundao.persitence.ConnectionManager;
 
 import java.io.*;
@@ -36,8 +37,6 @@ public class ClientHandler implements Runnable, Serializable {
                 //wait for Client request
                 reader = in.readLine();
                 System.out.println(reader);
-                //reader = reader.substring(0, reader.length());
-                System.out.println(reader);
 
                 if (reader == null) {
                     System.out.println("closing connection");
@@ -48,12 +47,15 @@ public class ClientHandler implements Runnable, Serializable {
                 ConnectionManager connectionManager = new ConnectionManager();
                 UserService userService = new JdbcUserService(connectionManager);
 
+                UserServiceInvoke userServiceInvoke = new UserServiceInvoke();
                 Parser parser = om.readValue(reader, Parser.class);
-                System.out.println("here");
-                System.out.println(parser.getMethodeName());
 
-                Method method = userService.getClass().getMethod(parser.getMethodeName(), parser.getUsername().getClass(), parser.getPassword().getClass());
-                method.invoke(userService,parser.getUsername(),parser.getPassword());
+
+                userServiceInvoke.setJdbcUserService((JdbcUserService) userService);
+
+
+                Method method = userServiceInvoke.getClass().getMethod(parser.getMethodName(), parser.getArgs().getClass());
+                method.invoke(userServiceInvoke, new Object[]{parser.getArgs()});
             }
 
 
