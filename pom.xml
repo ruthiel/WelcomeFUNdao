@@ -18,7 +18,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.academiadecodigo.hackaton.welcomefundao.Main</mainClass>
+                            <mainClass>org.academiadecodigo.hackaton.welcomefundao.Client.ClientScreen</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>jar-with-dependencies</descriptorRefs>

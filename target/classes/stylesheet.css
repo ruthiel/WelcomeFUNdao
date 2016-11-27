@@ -40,3 +40,7 @@
   -fx-text-fill: #BdC3C7;
   -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
+
+#pane{
+      -fx-background-color: #545454;
+}

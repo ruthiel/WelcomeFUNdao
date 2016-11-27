@@ -27,4 +27,5 @@ public interface UserService {
 
     String[] padawansProperties();
 
+    String[] heartProperties();
 }

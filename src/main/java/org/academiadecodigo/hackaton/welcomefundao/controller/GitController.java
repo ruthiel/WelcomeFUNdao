@@ -3,7 +3,6 @@ package org.academiadecodigo.hackaton.welcomefundao.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -11,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import org.academiadecodigo.hackaton.welcomefundao.Client;
+import org.academiadecodigo.hackaton.welcomefundao.Client.Client;
 import org.academiadecodigo.hackaton.welcomefundao.Navigation;
 
 /**
@@ -112,7 +111,7 @@ public class GitController implements Initializable {
 
     @FXML
     void linkToGitHub(ActionEvent event) {
-        
+
     }
 
     @FXML

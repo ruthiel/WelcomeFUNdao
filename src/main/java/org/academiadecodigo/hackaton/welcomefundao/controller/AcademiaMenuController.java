@@ -5,9 +5,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import org.academiadecodigo.hackaton.welcomefundao.Client;
+import org.academiadecodigo.hackaton.welcomefundao.Client.Client;
 import org.academiadecodigo.hackaton.welcomefundao.Navigation;
-import org.academiadecodigo.hackaton.welcomefundao.Parser;
+import org.academiadecodigo.hackaton.welcomefundao.Client.Parser;
 
 import java.io.IOException;
 import java.net.URL;

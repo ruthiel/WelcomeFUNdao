@@ -3,7 +3,7 @@ package org.academiadecodigo.hackaton.welcomefundao.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
-import org.academiadecodigo.hackaton.welcomefundao.Client;
+import org.academiadecodigo.hackaton.welcomefundao.Client.Client;
 
 import java.io.IOException;
 import java.net.URL;
@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import org.academiadecodigo.hackaton.welcomefundao.Navigation;
-import org.academiadecodigo.hackaton.welcomefundao.Parser;
+import org.academiadecodigo.hackaton.welcomefundao.Client.Parser;
 
 /**
  * Created by codecadet on 25/11/16.

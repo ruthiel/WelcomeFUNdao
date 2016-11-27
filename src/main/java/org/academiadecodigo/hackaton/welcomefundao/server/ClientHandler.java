@@ -1,7 +1,7 @@
 package org.academiadecodigo.hackaton.welcomefundao.server;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.academiadecodigo.hackaton.welcomefundao.Parser;
+import org.academiadecodigo.hackaton.welcomefundao.Client.Parser;
 import org.academiadecodigo.hackaton.welcomefundao.model.JdbcUserService;
 import org.academiadecodigo.hackaton.welcomefundao.model.UserService;
 import org.academiadecodigo.hackaton.welcomefundao.model.UserServiceInvoke;
@@ -11,7 +11,6 @@ import java.io.*;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.Socket;
-import java.sql.ResultSet;
 
 /**
  * Created by codecadet on 24/11/16.

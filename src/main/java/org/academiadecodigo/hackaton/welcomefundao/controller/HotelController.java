@@ -6,12 +6,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import org.academiadecodigo.hackaton.welcomefundao.Client;
+import org.academiadecodigo.hackaton.welcomefundao.Client.Client;
+import org.academiadecodigo.hackaton.welcomefundao.Game.GameMain;
 import org.academiadecodigo.hackaton.welcomefundao.Navigation;
-import org.academiadecodigo.hackaton.welcomefundao.Parser;
+import org.academiadecodigo.hackaton.welcomefundao.Client.Parser;
 import org.academiadecodigo.hackaton.welcomefundao.model.UserService;
 
 import java.io.IOException;
@@ -235,9 +235,12 @@ public class HotelController implements Initializable {
 
     @FXML
     void hiddenGameClick(ActionEvent event) {
-        Navigation.getInstance().loadScreen("GameEaster");
-        ((GameEasterController) Navigation.getInstance().getController("GameEaster")).setClient(client);
+        Navigation.getInstance().loadEasterEgg();
 
+        System.out.println("trying to open the fucking game");
+        /*Navigation.getInstance().loadScreen("GameEaster");
+        ((GameEasterController) Navigation.getInstance().getController("GameEaster")).setClient(client);
+*/
     }
 
     @FXML
@@ -247,7 +250,7 @@ public class HotelController implements Initializable {
     }
 
     @FXML
-    void mainMenuClick(MouseEvent event){
+    void mainMenuClick(MouseEvent event) {
         Navigation.getInstance().loadScreen("MainMenu");
         ((MainMenuController) Navigation.getInstance().getController("MainMenu")).setClient(client);
     }
@@ -257,11 +260,11 @@ public class HotelController implements Initializable {
         if (actual - 5 > 0) {
             actual -= 10;
             //item_image.setImage(new Image(results[0]));
-            item_title.setText(results[actual+1]);
-            address.setText(results[actual+2]);
-            phone.setText(results[actual+3]);
-            avg_price.setText(results[actual+4]);
-            actual = actual+5;
+            item_title.setText(results[actual + 1]);
+            address.setText(results[actual + 2]);
+            phone.setText(results[actual + 3]);
+            avg_price.setText(results[actual + 4]);
+            actual = actual + 5;
         }
     }
 
@@ -269,11 +272,11 @@ public class HotelController implements Initializable {
     void nextOnList(MouseEvent event) {
         if (actual < results.length) {
             //item_image.setImage(new Image(results[0]));
-            item_title.setText(results[actual+1]);
-            address.setText(results[actual+2]);
-            phone.setText(results[actual+3]);
-            avg_price.setText(results[actual+4]);
-            actual = actual+5;
+            item_title.setText(results[actual + 1]);
+            address.setText(results[actual + 2]);
+            phone.setText(results[actual + 3]);
+            avg_price.setText(results[actual + 4]);
+            actual = actual + 5;
         }
     }
 

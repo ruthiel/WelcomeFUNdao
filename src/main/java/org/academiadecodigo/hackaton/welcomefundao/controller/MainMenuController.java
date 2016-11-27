@@ -6,11 +6,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import org.academiadecodigo.hackaton.welcomefundao.Client;
+import org.academiadecodigo.hackaton.welcomefundao.Client.Client;
 import org.academiadecodigo.hackaton.welcomefundao.Navigation;
-import org.academiadecodigo.hackaton.welcomefundao.Parser;
+import org.academiadecodigo.hackaton.welcomefundao.Client.Parser;
 import org.academiadecodigo.hackaton.welcomefundao.model.UserService;
 
+import javax.sound.sampled.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -51,6 +53,7 @@ public class MainMenuController implements Initializable {
 
     @FXML
     void academiaClick(MouseEvent event) {
+
         Navigation.getInstance().loadScreen("AcademiaMenu");
         ((AcademiaMenuController) Navigation.getInstance().getController("AcademiaMenu")).setClient(client);
     }
@@ -175,4 +178,6 @@ public class MainMenuController implements Initializable {
     public void setClient(Client client) {
         this.client = client;
     }
+
 }
+

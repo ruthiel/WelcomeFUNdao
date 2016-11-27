@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.academiadecodigo.hackaton.welcomefundao.Game.GameMain;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -54,6 +55,17 @@ public final class Navigation {
         } catch (IOException e) {
             System.out.println("Failure to load view " + view + " : " + e.getMessage());
 
+        }
+    }
+
+    public void loadEasterEgg(){
+        GameMain gameMain = new GameMain();
+        try {
+            gameMain.start(stage);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

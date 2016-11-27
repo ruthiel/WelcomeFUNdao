@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
-import org.academiadecodigo.hackaton.welcomefundao.Client;
+import org.academiadecodigo.hackaton.welcomefundao.Client.Client;
 
 import java.io.IOException;
 import java.net.URL;
@@ -12,13 +12,15 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import org.academiadecodigo.hackaton.welcomefundao.Navigation;
-import org.academiadecodigo.hackaton.welcomefundao.Parser;
+import org.academiadecodigo.hackaton.welcomefundao.Client.Parser;
 
 /**
  * Created by codecadet on 25/11/16.
  */
 public class HeartEasterController implements Initializable {
     Client client;
+    private String[] results;
+    private  int actual;
 
     @FXML
     private ImageView rentRoom;
@@ -194,4 +196,6 @@ public class HeartEasterController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+
+
 }

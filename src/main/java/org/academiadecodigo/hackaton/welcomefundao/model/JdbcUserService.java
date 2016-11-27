@@ -376,4 +376,40 @@ public class JdbcUserService implements UserService {
         }*/
         return null;
     }
+
+    @Override
+    public String[] heartProperties() {
+        try {
+            checkConnection();
+
+            Statement statement = dbConnection.createStatement();
+
+            String query = "SELECT mulherdavida_name, mulherdavida_nationality, mulherdavida_especiality, mulherdavida_preferences, mulherdavida_contact FROM classificados_xxx ;";
+            ResultSet resultSet = statement.executeQuery(query);
+
+            LinkedList<String> list = new LinkedList<>();
+            while (resultSet.next()){
+                for (int i = 1; i <6 ; i++) {
+                    list.add(resultSet.getString(i));
+                }
+            }
+
+            String[] toReturn = new String[list.size()];
+
+            for (int i = 0; i < list.size(); i++) {
+                toReturn[i] = list.get(i);
+            }
+
+            for (String s:toReturn) {
+
+            }
+
+            return toReturn;
+
+
+        } catch (SQLException ex) {
+            ex.getStackTrace();
+        }
+        return null;
+    }
 }

@@ -45,6 +45,10 @@ public class UserServiceInvoke {
         return jdbcUserService.barProperties();
     }
 
+    public String[] heartProperties(String[] args){
+        return jdbcUserService.heartProperties();
+    }
+
     public String[] utilitiesProperties(String[] args) {
         return jdbcUserService.utilitiesProperties();
     }
